@@ -5,4 +5,5 @@ module.exports = function(app) {
   require('./parsers')(app)
   require('./sass')(app)
   require('./public')(app)
+  require('./sessions')(app)
 }
