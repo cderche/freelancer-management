@@ -3,7 +3,8 @@ var consign = require('consign');
 
 var app = express();
 consign()
-  .include('config')
+  .include('models')
+  .then('config')
   .then('middleware')
   .then('routes')
   .into(app);
