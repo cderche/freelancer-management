@@ -1,18 +1,14 @@
 var express = require('express');
 var consign = require('consign');
 
-
-// var users = require('./routes/users');
-
 var app = express();
 consign()
   .include('config')
   .then('middleware')
+  .then('routes')
   .into(app);
 
-
-// var routes = ;
-app.use(require('./routes'));
+// app.use(require('./routes'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

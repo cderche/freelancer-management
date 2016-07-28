@@ -1,9 +1,8 @@
-var express = require('express');
-var router = express.Router();
+module.exports = function(app) {
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+  var user = app.middleware.user;
 
-module.exports = router;
+  app.get('/user', user.find);
+  app.get('/user/:id', user.findById);
+
+}
