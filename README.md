@@ -35,3 +35,4 @@ POST    | /signup   | Registers the user
 - [expressjs](https://expressjs.com/)
 - [passportjs](http://passportjs.org/)
 - [kue](https://github.com/Automattic/kue)
+- [foreman](http://ddollar.github.io/foreman/)
