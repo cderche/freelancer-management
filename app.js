@@ -1,11 +1,14 @@
 var express = require('express');
+var consign = require('consign');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
-require('./config')(app);
+consign()
+  .include('config')
+  .then('middleware')
+  .into(app);
 
 
 app.use('/', routes);
