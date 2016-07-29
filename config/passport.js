@@ -1,13 +1,11 @@
+// Must run after config-session
 module.exports = function(app) {
 
   // var User = app.models.user
 
-  var passport = require('passport')
-  var LocalStrategy = require('passport-local').Strategy
-  var bCrypt = require('bcrypt-nodejs')
-
-  app.use(passport.initialize())
-  app.use(passport.session())
+  var passport = require('passport');
+  var LocalStrategy = require('passport-local').Strategy;
+  var bCrypt = require('bcrypt-nodejs');
 
   passport.serializeUser(function(user, done) {
     done(null, user._id);
@@ -23,6 +21,7 @@ module.exports = function(app) {
       passReqToCallback : true
     },
     function(req, username, password, done) {
+      console.log('passport.use(login)');
       var isValidPassword = function(user, password){
         return bCrypt.compareSync(password, user.password);
       }
@@ -37,13 +36,13 @@ module.exports = function(app) {
           if (!user){
             console.log('User Not Found with username '+username);
             return done(null, false,
-                  req.flash('message', 'User Not found.'));
+                  req.flash('message', 'Invalid Email or Password.'));
           }
           // User exists but wrong password, log the error
           if (!isValidPassword(user, password)){
             console.log('Invalid Password');
             return done(null, false,
-                req.flash('message', 'Invalid Password'));
+                req.flash('message', 'Invalid Email or Password.'));
           }
           // User and password both match, return user from
           // done method which will be treated like success
@@ -54,9 +53,11 @@ module.exports = function(app) {
   ));
 
   passport.use('signup', new LocalStrategy({
+      usernameField: 'email',
       passReqToCallback : true
     },
     function(req, username, password, done) {
+      console.log('passport.use(signup)', username);
       // Generates hash using bCrypt
       var createHash = function(password){
        return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
@@ -78,13 +79,14 @@ module.exports = function(app) {
           } else {
             // if there is no user with that email
             // create the user
-            var newUser = new User();
+            console.log(req.body);
+            var newUser = new User(req.body);
+            newUser.username = username
+            newUser.password = createHash(password)
             // set the user's local credentials
-            newUser.username = username;
-            newUser.password = createHash(password);
-            newUser.email = req.param('email');
-            newUser.firstName = req.param('firstName');
-            newUser.lastName = req.param('lastName');
+            // newUser.email = req.param('email');
+            // newUser.firstName = req.param('firstName');
+            // newUser.lastName = req.param('lastName');
 
             // save the user
             newUser.save(function(err) {
@@ -104,5 +106,8 @@ module.exports = function(app) {
       process.nextTick(findOrCreateUser);
     })
   );
+
+  app.use(passport.initialize());
+  app.use(passport.session());
 
 }

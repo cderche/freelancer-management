@@ -1,0 +1,88 @@
+#wizard.form_wizard.wizard_horizontal
+  ul.wizard_steps
+    li
+      a(href='#step-1')
+        span.step_no 1
+        span.step_descr Account
+    li
+      a(href='#step-2')
+        span.step_no 2
+        span.step_descr Passport
+    li
+      a(href='#step-3')
+        span.step_no 3
+        span.step_descr Visa
+    li
+      a(href='#step-4')
+        span.step_no 4
+        span.step_descr Bank
+    li
+      a(href='#step-5')
+        span.step_no 5
+        span.step_descr Legal
+  #step-1
+    h2.StepTitle Account Information
+    .item.form-group.col-md-6.col-sm-6.col-xs-12.col-md-offset-3.col-sm-offset-3
+      input.form-control(name='email' type='email' placeholder='Email' required='')
+    .item.form-group.col-md-6.col-sm-6.col-xs-12.col-md-offset-3.col-sm-offset-3
+      input.form-control(name='password' type='password' placeholder='Password' required='')
+    .item.form-group.col-md-6.col-sm-6.col-xs-12.col-md-offset-3.col-sm-offset-3
+      input.form-control(name='password_confirmation' type='password' placeholder='Password Confirmation' required='')
+    .item.form-group.col-md-6.col-sm-6.col-xs-12.col-md-offset-3.col-sm-offset-3
+      input.form-control(name='telephone' type='text' placeholder='Telephone' required='')
+  #step-2
+    h2.StepTitle Passport Information
+    .item.form-group.col-md-4.col-sm-4.col-xs-12
+      input.form-control(name='first_name' type='text', placeholder='First Name', required='')
+    .item.form-group.col-md-4.col-sm-4.col-xs-12
+      input.form-control(name='middle_name' type='text', placeholder='Middle Name(s)', required='')
+    .item.form-group.col-md-4.col-sm-4.col-xs-12
+      input.form-control(name='last_name' type='text', placeholder='Last Name', required='')
+    .item.form-group.col-md-4.col-sm-4.col-xs-12
+      input.form-control(name='passport_number' type='text', placeholder='Passport Number', required='')
+    .item.form-group.col-md-4.col-sm-4.col-xs-12
+      input.form-control(name='passport_issue_date' type='text', placeholder='Passport Issue Date', required='')
+    .item.form-group.col-md-4.col-sm-4.col-xs-12
+      input.form-control(name='passport_expiry_date' type='text', placeholder='Passport Expiry Date', required='')
+    .item.form-group.col-md-4.col-sm-4.col-xs-12
+      input.form-control(name='nationality' type='text', placeholder='Nationality', required='')
+    .item.form-group.col-md-4.col-sm-4.col-xs-12
+      input.form-control(name='sex' type='text', placeholder='Sex', required='')
+    .item.form-group.col-md-4.col-sm-4.col-xs-12
+      input.form-control(name='date_of_birth' type='text', placeholder='Date of Birth', required='')
+  #step-3
+    h2.StepTitle Visa Information
+    .item.form-group.col-md-4.col-sm-4.col-xs-12.col-md-offset-2.col-sm-offset-2
+      input.form-control(name='visa_number' type='text', placeholder='Visa Number', required='')
+    .item.form-group.col-md-4.col-sm-4.col-xs-12
+      input.form-control(name='visa_issuer' type='text', placeholder='Visa Issuer (Company)', required='')
+    .item.form-group.col-md-4.col-sm-4.col-xs-12.col-md-offset-2.col-sm-offset-2
+      input.form-control(name='visa_issue_date' type='text', placeholder='Visa Issue Date', required='')
+    .item.form-group.col-md-4.col-sm-4.col-xs-12
+      input.form-control(name='visa_expiry_date' type='text', placeholder='Visa Expiry Date', required='')
+  #step-4
+    h2.StepTitle Bank Information
+    .item.form-group.col-md-6.col-sm-6.col-xs-12.col-md-offset-3.col-sm-offset-3
+      input.form-control(name='bank_name' type='text', placeholder='Bank Name', required='')
+    .item.form-group.col-md-6.col-sm-6.col-xs-12.col-md-offset-3.col-sm-offset-3
+      input.form-control(name='bank_account_number' type='text', placeholder='Bank Account Number', required='')
+    .item.form-group.col-md-6.col-sm-6.col-xs-12.col-md-offset-3.col-sm-offset-3
+      input.form-control(name='bank_account_holder' type='text', placeholder='Bank Account Holder', required='')
+  #step-5
+    h2.StepTitle Terms & Conditions
+    .form-group.col-xs-12
+      //- a.media(href='/terms.pdf')
+      object(data='/terms.pdf', type='application/pdf', width='100%', height='300')
+        iframe(src='/terms.pdf', width='100%', height='300', style='border: none;')
+          | This browser does not support PDFs. Please download the PDF to view it: 
+          a(href='/terms.pdf') Download PDF
+    .item.form-group.col-xs-12
+      label(style='font-size: 16px')
+        input(name='agreeTerms' type='checkbox' onchange="$('.buttonFinish').disabled = !this.checked;")
+        | &nbsp; I agree with the terms and conditions
+    .form-group.col-xs-12.center
+      .g-recaptcha(data-sitekey="6Lf3UyYTAAAAAPx5jsymtDvzX1dyPSg1dQUOqUu1")
+
+style.
+  .g-recaptcha div { margin-left: auto; margin-right: auto;}
+    
