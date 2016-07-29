@@ -36,3 +36,8 @@ POST    | /signup   | Registers the user
 - [passportjs](http://passportjs.org/)
 - [kue](https://github.com/Automattic/kue)
 - [foreman](http://ddollar.github.io/foreman/)
+- [Grunt](grunt), [Heroku Article](https://devcenter.heroku.com/articles/node-with-grunt)
+- [Bundler](bundler)
+- [Sass](sass)
+
+Maybe now

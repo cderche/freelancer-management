@@ -1,6 +1,6 @@
 module.exports = function(app) {
 
-  // var User = app.models.user;
+  var User = app.models.user;
 
   this.find = function(req, res, next) {
     return res.send('User.find()')
