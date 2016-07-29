@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "preinstall": "bundle install",
-    "postinstall": "grunt",
+    "postinstall": "bundle install && grunt",
     "start": "node ./bin/www"
   },
   "dependencies": {
