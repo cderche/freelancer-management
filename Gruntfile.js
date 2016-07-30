@@ -20,16 +20,14 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd:    'node_modules/gentelella/build',
-            src:    ['**/*'],
-            dest:   '.tmp/public/gentelella/build',
-            // ext:    '.min.js'
+            src:    ['**/*.js', '**/*.css'],
+            dest:   '.tmp/public/gentelella/build'
           },
           {
             expand: true,
             cwd:    'node_modules/gentelella/vendors',
-            src:    ['**/*'],
-            dest:   '.tmp/public/',
-            // ext:    '.min.js'
+            src:    ['**/*.js', '**/*.css', '**/*.png'],
+            dest:   '.tmp/public/'
           },
           {
             expand: true,
@@ -41,7 +39,7 @@ module.exports = function(grunt) {
             expand: true,
             cwd:    'public/javascripts',
             src:    ['*.js'],
-            dest:   '.tmp/public/js',
+            dest:   '.tmp/public/js'
           },
           {
             expand: true,
