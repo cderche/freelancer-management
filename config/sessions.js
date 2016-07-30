@@ -4,7 +4,7 @@ var RedisStore = require('connect-redis')(session);
 module.exports = function(app) {
   console.log('Configuring sessions.');
   app.use(session({
-    store: new RedisStore(process.env.REDIS_SESSIONS_URL),
+    store: new RedisStore({ url: process.env.REDIS_SESSIONS_URL }),
     secret: 'keyboard cat'
   }));
 }
