@@ -1,0 +1,145 @@
+script(src='/jquery/dist/jquery.min.js')
+script(src='/bootstrap/dist/js/bootstrap.min.js')
+script(src='/fastclick/lib/fastclick.js')
+script(src='/nprogress/nprogress.js')
+script(src='/validator/validator.min.js')
+script(src='/jQuery-Smart-Wizard/js/jquery.smartWizard.js')
+script(src='/iCheck/icheck.min.js')
+
+script(src='https://www.google.com/recaptcha/api.js')
+
+script(src='/gentelella/build/js/custom.js')
+
+script.
+  $(document).ready(function() {
+
+    var onLeaveStep = function(obj, context) {
+      $('.item').removeClass('bad');
+      console.log(`Leaving step ${context.fromStep} to go to step ${context.toStep}`);
+      if (context.toStep < context.fromStep) {
+        return true;
+      }else{
+        return validateSteps(context.fromStep);
+      }
+    }
+
+    var onFinish = function(obj, context) {
+      if(validateAllSteps()){
+        $('#registrationForm').submit()
+      }
+    }
+
+    // Your Step validation logic
+    function validateSteps(stepnumber){
+        var isStepValid = true;
+        // validate step 1
+        switch (stepnumber) {
+          case 1:
+            v1 = validator.checkField.apply($('input[name=email]'));
+            v2 = validator.checkField.apply($('input[name=password]'));
+            v3 = validator.checkField.apply($('input[name=telephone]'));
+            v4 = $('input[name=password]').val().localeCompare($('input[name=password_confirmation]').val()) == 0
+            if (!v4) {
+              $('input[name=password]').parent().addClass('bad')
+              $('input[name=password_confirmation]').parent().addClass('bad')
+            }
+            isStepValid = (v1 && v2 && v3 && v4)
+            break;
+          case 2:
+            v1 = validator.checkField.apply($('input[name=first_name]'));
+            v2 = validator.checkField.apply($('input[name=middle_name]'));
+            v3 = validator.checkField.apply($('input[name=last_name]'));
+            v4 = validator.checkField.apply($('input[name=passport_number]'));
+            v5 = validator.checkField.apply($('input[name=passport_issue_date]'));
+            v6 = validator.checkField.apply($('input[name=passport_expiry_date]'));
+            v7 = validator.checkField.apply($('input[name=nationality]'));
+            v8 = validator.checkField.apply($('input[name=sex]'));
+            v9 = validator.checkField.apply($('input[name=date_of_birth]'));
+            isStepValid = (v1 && v2 && v3 && v4 && v5 && v6 && v7 && v8 && v9)
+            break;
+          case 3:
+            v1 = validator.checkField.apply($('input[name=visa_number]'));
+            v2 = validator.checkField.apply($('input[name=visa_issuer]'));
+            v3 = validator.checkField.apply($('input[name=visa_issue_date]'));
+            v4 = validator.checkField.apply($('input[name=visa_expiry_date]'));
+            isStepValid = (v1 && v2 && v3 && v4)
+            break;
+          case 4:
+            v1 = validator.checkField.apply($('input[name=bank_name]'));
+            v2 = validator.checkField.apply($('input[name=bank_account_number]'));
+            v3 = validator.checkField.apply($('input[name=bank_account_holder]'));
+            isStepValid = (v1 && v2 && v3)
+            break;
+          case 5:
+            v1 = validator.checkField.apply($('input[name=agreeTerms]'));
+            v2 = $('input[name=agreeTerms]').is(':checked')
+            console.log(`v1: ${v1}, v2: ${v2}`);
+            isStepValid = (v1 && v2)
+            break;
+          default:
+
+        }
+        console.log(`${stepnumber} isStepValid: ${isStepValid}`);
+        return isStepValid;
+    }
+
+    function validateAllSteps(){
+        var isStepValid = true;
+
+        if (!validateSteps(1)) return false
+        if (!validateSteps(2)) return false
+        if (!validateSteps(3)) return false
+        if (!validateSteps(4)) return false
+        if (!validateSteps(5)) return false
+
+        // all step validation logic
+        return isStepValid;
+    }
+
+    $('#wizard').smartWizard({
+      keyNavigation: false,
+      hideButtonsOnDisabled: true,
+      onLeaveStep: onLeaveStep,
+      onFinish: onFinish
+    });
+    $('.buttonNext').addClass('btn btn-success');
+    $('.buttonPrevious').addClass('btn btn-primary');
+    $('.buttonFinish').addClass('btn btn-default');
+  });
+
+script.
+  validator.defaults.alerts = false;
+  // initialize the validator function
+  validator.message['date'] = 'not a real date';
+  // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+  $('form').on('blur', 'input[required], input.optional', validator.checkField)
+    .on('change', 'select.required', validator.checkField);;
+  $('.multi.required').on('keyup', 'input', function(){
+    validator.checkField.apply($(this).siblings().last()[0]);
+  });
+
+  // bind the validation to the form submit event
+  //$('#send').click('submit');//.prop('disabled', true);
+  
+  $('form').submit(function(e){
+    e.preventDefault();
+    var submit = true;
+    // evaluate the form using generic validaing
+    if( !validator.checkAll( $(this) ) ){
+      submit = false;
+    }
+
+    if( submit )
+      this.submit();
+    return false;
+  });
+
+
+script.
+  $(document).ready(function(){
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_flat-green',
+      radioClass: 'iradio_flat-green',
+      increaseArea: '20%' // optional
+    });
+  });
