@@ -46,7 +46,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd:    'public',
-            src:    ['*.pdf'],
+            src:    ['*.pdf', '*.ico'],
             dest:   '.tmp/public'
           },
           {
