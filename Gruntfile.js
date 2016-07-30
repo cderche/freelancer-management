@@ -1,3 +1,36 @@
+cssFiles = [
+  'bootstrap/dist/css/bootstrap.min.css',
+  'font-awesome/css/font-awesome.min.css',
+  'animate.css/animate.min.css',
+  'iCheck/skins/**/*.css',
+]
+
+jsFiles = [
+  'jquery/dist/jquery.min.js',
+  'bootstrap/dist/js/bootstrap.min.js',
+  'fastclick/lib/fastclick.js',
+  'nprogress/nprogress.js',
+  'validator/validator.min.js',
+  'jQuery-Smart-Wizard/js/jquery.smartWizard.js',
+  'iCheck/icheck.min.js'
+]
+
+otherFiles = [
+  'iCheck/skins/**/*.png',
+  'font-awesome/fonts/*',
+  'bootstrap/dist/fonts/*'
+]
+
+publicFiles = [
+  '**/*.js',
+  '**/*.css',
+  '**/*.pdf',
+  '**/*.ico',
+  '**/*.png',
+  '**/*.jpg',
+  // 'fonts/*'
+]
+
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -20,40 +53,20 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd:    'node_modules/gentelella/build',
-            src:    ['**/*'],
-            dest:   '.tmp/public/gentelella/build',
-            // ext:    '.min.js'
+            src:    ['js/custom.js', 'css/custom.min.css'],
+            dest:   '.tmp/public/gentelella/build'
           },
           {
             expand: true,
             cwd:    'node_modules/gentelella/vendors',
-            src:    ['**/*'],
-            dest:   '.tmp/public/',
-            // ext:    '.min.js'
-          },
-          {
-            expand: true,
-            cwd: 'node_modules/gentelella/vendors/font-awesome/fonts/',
-            src: ['*'],
-            dest: '.tmp/public/fonts/', filter: 'isFile'
-          },
-          {
-            expand: true,
-            cwd:    'public/javascripts',
-            src:    ['*.js'],
-            dest:   '.tmp/public/js',
-          },
-          {
-            expand: true,
-            cwd:    'public',
-            src:    ['*.pdf'],
+            src:    [cssFiles, jsFiles, otherFiles],
             dest:   '.tmp/public'
           },
           {
             expand: true,
-            cwd:    'public/images',
-            src:    ['**/*'],
-            dest:   '.tmp/public/images'
+            cwd:    'public',
+            src:    publicFiles,
+            dest:   '.tmp/public'
           },
         ]
       }

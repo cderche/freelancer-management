@@ -9,7 +9,7 @@ var debug = require('debug')('freelancer-management:server');
 var http = require('http');
 var cluster = require('cluster')
 var cpuCount = require('os').cpus().length
-
+console.log(`There are ${cpuCount} CPUs running.`);
 /**
  * Get port from environment and store in Express.
  */
@@ -29,7 +29,7 @@ if (cluster.isMaster) {
   cluster.on('listening', function(worker, address) {
     console.log(`Worker ${worker.process.pid} started.`);
   })
-  
+
 }else{
   //Create HTTP server.
   var server = http.createServer(app);

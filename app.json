@@ -7,6 +7,7 @@
   "formation": {
   },
   "addons": [
+    "logentries:le_tryit",
     {
       "plan": "mongolab:sandbox",
       "as": "MONGODB_URI"

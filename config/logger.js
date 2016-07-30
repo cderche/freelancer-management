@@ -1,6 +1,4 @@
-var logger = require('morgan');
-
 module.exports = function(app) {
-  console.log('Configuring logger.');
+  var logger = require('morgan');
   app.use(logger('dev'));
 }
