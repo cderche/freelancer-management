@@ -7,7 +7,14 @@
   "formation": {
   },
   "addons": [
-
+    {
+      "plan": "mongolab:sandbox",
+      "as": "MONGODB_URI"
+    },
+    {
+      "plan": "heroku-redis:hobby-dev",
+      "as": "REDIS_SESSIONS_URI"
+    }
   ],
   "buildpacks": [
 
