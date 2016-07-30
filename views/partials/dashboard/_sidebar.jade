@@ -1,0 +1,49 @@
+.col-md-3.left_col
+  .left_col.scroll-view
+    .navbar.nav_title(style='border: 0;')
+      a.site_title(href='index.html')
+        img.img-responsive(src='/images/logo_white.png')
+        span GetShiny
+    .clearfix
+    // menu profile quick info
+    br
+    .profile
+      .profile_pic
+        img.img-circle.profile_img(src='images/profile.jpg', alt='...')
+      .profile_info
+        span Welcome,
+        h2 #{user.first_name} #{user.last_name}
+    .clearfix
+    br
+    // sidebar menu
+    #sidebar-menu.main_menu_side.hidden-print.main_menu
+      .menu_section
+        h3 General
+        ul.nav.side-menu
+          li
+            a
+              i.fa.fa-star
+              |  New Jobs
+          li
+            a
+              i.fa.fa-briefcase
+              |  My Jobs 
+              span.fa.fa-chevron-down
+            ul.nav.child_menu
+              li
+                a Future Jobs
+              li
+                a Past Jobs
+
+          // /menu footer buttons
+          .sidebar-footer.hidden-small
+            a(data-toggle='tooltip', data-placement='top', title='Settings')
+              i.fa.fa-cog
+            a(data-toggle='tooltip', data-placement='top', title='Profile')
+              i.fa.fa-user
+            a(data-toggle='tooltip', data-placement='top', title='Help')
+              i.fa.fa-question
+            a(data-toggle='tooltip', data-placement='top', title='Logout', href='/signout')
+              i.fa.fa-sign-out
+          // /menu footer buttons
+          

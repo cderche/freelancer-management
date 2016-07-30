@@ -143,3 +143,14 @@ script.
       increaseArea: '20%' // optional
     });
   });
+
+script.
+  // toggle small or large menu
+  $MENU_TOGGLE.on('click', function() {
+    console.log('hello world');
+    if ($BODY.hasClass('nav-md')) {
+      $('.site_title img').css('margin-left', 0)
+    } else {
+      $('.site_title img').css('margin-left', 'auto')
+    }
+  });
