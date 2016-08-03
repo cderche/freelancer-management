@@ -22,6 +22,7 @@
     "jade": "~1.11.0",
     "mongoose": "^4.5.7",
     "morgan": "~1.7.0",
+    "newrelic": "^1.28.3",
     "node-sass-middleware": "0.8.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
