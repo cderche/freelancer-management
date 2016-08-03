@@ -42,6 +42,13 @@ module.exports = function(app) {
             return done(null, false,
                 req.flash('message', 'Invalid Email or Password.'));
           }
+          // // User has been verified
+          // if(!user.verified) {
+          //   console.log('User has not been verified');
+          //   return done(null, false,
+          //       req.flash('message', 'This account has not been verified.'));
+          // }
+
           // User and password both match, return user from
           // done method which will be treated like success
           return done(null, user);
@@ -82,9 +89,6 @@ module.exports = function(app) {
             newUser.username = username
             newUser.password = createHash(password)
             // set the user's local credentials
-            // newUser.email = req.param('email');
-            // newUser.firstName = req.param('firstName');
-            // newUser.lastName = req.param('lastName');
 
             // save the user
             newUser.save(function(err) {

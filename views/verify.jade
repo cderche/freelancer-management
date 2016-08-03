@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  br
+  .row
+    .col-sm-8.col-xs-12.col-sm-offset-2
+      .x_panel
+        .x_title
+          h1 Account Verification
+        .x_content
+          h2 Hi #{user.first_name}!
+          p Your application has been submitted.
+          p A member from the Shiny Team will be in contact soon.
+          .clearfix
+          a(href='signout') Log out
