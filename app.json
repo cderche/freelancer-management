@@ -8,6 +8,7 @@
   },
   "addons": [
     "logentries:le_tryit",
+    "newrelic:wayne",
     {
       "plan": "mongolab:sandbox",
       "as": "MONGODB_URI"

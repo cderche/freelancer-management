@@ -23,6 +23,7 @@ if (!global.hasOwnProperty('User')) {
     bank_account_number:  { type: String, required: true },
     bank_account_holder:  { type: String, required: true },
     agreeTerms:           { type: Boolean, required: true },
+    verified:             { type: Boolean, required: true, defaultValue: false }
   })
 }
 
