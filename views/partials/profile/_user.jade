@@ -1,0 +1,32 @@
+.x_panel
+  .x_title
+    h2 User Profile
+    ul.nav.navbar-right.panel_toolbox
+      li(style='float: right')
+        a.collapse-link
+          i.fa.fa-chevron-up
+    .clearfix
+  .x_content
+    form.form-horizontal.form-label-left
+      //- Profile Image
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Profile
+        .col-md-8.col-sm-8.col-xs-12
+          img.img-responsive.avatar-view(src='images/profile.jpg', alt='Profile')
+      //- Email
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Email
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.email}')
+      //- Terms
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Terms
+        .col-md-8.col-sm-8.col-xs-12
+          .checkbox
+            input(type='checkbox' disabled='disabled' checked='#{user.agreeTerms}')
+      //- Verified
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Verified
+        .col-md-8.col-sm-8.col-xs-12
+          .checkbox
+            input(type='checkbox' disabled='disabled' checked='#{user.verified}')

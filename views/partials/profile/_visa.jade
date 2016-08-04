@@ -1,0 +1,30 @@
+.x_panel
+  .x_title
+    h2 Visa Details
+    ul.nav.navbar-right.panel_toolbox
+      li(style='float: right')
+        a.collapse-link
+          i.fa.fa-chevron-up
+    .clearfix
+  .x_content
+    form.form-horizontal.form-label-left
+      //- Visa Number
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Visa Number
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.visa_number}')
+      //- Visa Issuer
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Issuer
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.visa_issuer}')
+      //- Visa Issue Date
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Issue Date
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.visa_issue_date}')
+      //- Visa Expiry Date
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Expiry Date
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.visa_expiry_date}')
