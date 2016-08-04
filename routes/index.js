@@ -21,4 +21,8 @@ module.exports = function(app) {
     res.render('verify', { title: 'Account Verification', user: req.user, message: req.flash('message') });
   })
 
+  app.get('/profile', isAuthenticated, isVerified, function(req, res) {
+    res.render('profile', { title: 'Profile', body_class: 'nav-md', user: req.user, message: req.flash('message') });
+  })
+
 }

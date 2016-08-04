@@ -55,7 +55,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd:    'node_modules/gentelella/build',
-            src:    ['js/custom.js', 'css/custom.min.css'],
+            src:    ['js/custom.min.js', 'css/custom.min.css'],
             dest:   '.tmp/public/gentelella/build'
           },
           {

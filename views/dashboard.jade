@@ -1,19 +1,4 @@
-extends layout
+extends partials/dashboard/_frame
 
-block content
-
-  .container.body
-    .main_container
-      // sidebar
-      include partials/dashboard/_sidebar
-      
-      // top navigation
-      include partials/dashboard/_navbar
-
-      // page content
-      .right_col(role='main')
-        h4 To be implemented
-      // /page content
-
-      // footer content
-      include partials/dashboard/_footer
+block main_content
+  h4 Hello World
