@@ -1,7 +1,7 @@
 if (!global.hasOwnProperty('User')) {
   var mongoose = require('mongoose')
 
-  global.User = mongoose.model('User', {
+  global.User = mongoose.model('Workforce', {
     username:             { type: String, required: true },
     password:             { type: String, required: true },
     email:                { type: String, required: true },
@@ -22,8 +22,8 @@ if (!global.hasOwnProperty('User')) {
     bank_name:            { type: String, required: true },
     bank_account_number:  { type: String, required: true },
     bank_account_holder:  { type: String, required: true },
-    agreeTerms:           { type: Boolean, required: true },
-    verified:             { type: Boolean, required: true, defaultValue: false }
+    agreeTerms:           { type: Boolean, required: true, default: false },
+    verified:             { type: Boolean, required: true, default: false }
   })
 }
 

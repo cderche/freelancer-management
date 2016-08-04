@@ -14,7 +14,7 @@ jsFiles = [
   'validator/validator.min.js',
   'jQuery-Smart-Wizard/js/jquery.smartWizard.js',
   'iCheck/icheck.min.js',
-  'select2/dist/js/select2.full.min.js',
+  'jquery.inputmask/dist/jquery.inputmask.bundle.js'
 ]
 
 otherFiles = [
