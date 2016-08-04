@@ -1,7 +1,7 @@
 if (!global.hasOwnProperty('User')) {
   var mongoose = require('mongoose')
 
-  global.User = mongoose.model('Workforce', {
+  var schema = new mongoose.Schema({
     username:             { type: String, required: true },
     password:             { type: String, required: true },
     email:                { type: String, required: true },
@@ -23,8 +23,20 @@ if (!global.hasOwnProperty('User')) {
     bank_account_number:  { type: String, required: true },
     bank_account_holder:  { type: String, required: true },
     agreeTerms:           { type: Boolean, required: true, default: false },
-    verified:             { type: Boolean, required: true, default: false }
+    verified:             { type: Boolean, required: true, default: false },
+    reset_token:          String,
   })
+
+  schema.methods.generate_reset_token = function(cb) {
+    var hat = require('hat');
+    this.reset_token = hat()
+    this.save(function(err) {
+      cb(err)
+    })
+  }
+
+  global.User = mongoose.model('Workforce', schema)
+  
 }
 
 module.exports = global.User

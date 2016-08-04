@@ -33,5 +33,33 @@ module.exports = function(app) {
     res.redirect('/login');
   });
 
+  app.get('/forgot', function(req, res) {
+    if (req.isAuthenticated())
+      return res.redirect('/')
+    res.render('forgot', { title: 'Forgot Password', body_class: 'login', message: req.flash('message') });
+  })
+
+  app.post('/forgot', function(req, res) {
+    var username = req.body.username
+
+    // Find user
+    User.findOne({ username: username }, function(err, user) {
+      console.error('Error', err);
+      console.log('User', user);
+      if (err || !user) {
+        req.flash('message', `Unknown user ${req.body.username}`);
+        return res.render('forgot', { title: 'Forgot Password', body_class: 'login', message: req.flash('message') });
+      }
+
+      // Generate & save reset token
+      user.generate_reset_token(function() {
+        // Send email with reset token
+        req.flash('message', `Email sent to ${user.email}`);
+        res.render('forgot', { title: 'Forgot Password', body_class: 'login', message: req.flash('message') });
+      })
+
+    })
+  })
+
 
 }
