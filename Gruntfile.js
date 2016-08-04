@@ -12,7 +12,8 @@ jsFiles = [
   'nprogress/nprogress.js',
   'validator/validator.min.js',
   'jQuery-Smart-Wizard/js/jquery.smartWizard.js',
-  'iCheck/icheck.min.js'
+  'iCheck/icheck.min.js',
+  'jquery.inputmask/dist/jquery.inputmask.bundle.js'
 ]
 
 otherFiles = [
