@@ -1,0 +1,25 @@
+.x_panel
+  .x_title
+    h2 Bank Details
+    ul.nav.navbar-right.panel_toolbox
+      li(style='float: right')
+        a.collapse-link
+          i.fa.fa-chevron-up
+    .clearfix
+  .x_content
+    form.form-horizontal.form-label-left
+      //- Bank Name
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Bank Name
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.bank_name}')
+      //- Bank Account Number
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Bank Account Number
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.bank_account_number}')
+      //- Bank Account Holder
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Bank Account Holder
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.bank_account_holder}')

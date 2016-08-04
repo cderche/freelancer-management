@@ -1,0 +1,55 @@
+.x_panel
+  .x_title
+    h2 Passport Details
+    ul.nav.navbar-right.panel_toolbox
+      li(style='float: right')
+        a.collapse-link
+          i.fa.fa-chevron-up
+    .clearfix
+  .x_content
+    form.form-horizontal.form-label-left
+      //- First Name
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 First Name
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.first_name}')
+      //- Middle Name
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Middle Name(s)
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.middle_name}')
+      //- Last Name
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Last Name
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.last_name}')
+      //- Passport Number
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Passport Number
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.passport_number}')
+      //- Passport Issue Date
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Issue Date
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.passport_issue_date}')
+      //- Passport Expiry Date
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Expiry Date
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.passport_expiry_date}')
+      //- Nationality
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Nationality
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.nationality}')
+      //- Sex
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Sex
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.sex}')
+      //- Date of Birth
+      .form-group
+        label.control-label.col-md-4.col-sm-4.col-xs-12 Date of Birth
+        .col-md-8.col-sm-8.col-xs-12
+          input.form-control(type='text' readonly='readonly' placeholder='#{user.date_of_birth}')
