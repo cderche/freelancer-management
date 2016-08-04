@@ -22,12 +22,15 @@
     "jade": "~1.11.0",
     "mongoose": "^4.5.7",
     "morgan": "~1.7.0",
+    "newrelic": "^1.28.3",
     "node-sass-middleware": "0.8.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0"
