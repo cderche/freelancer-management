@@ -3,6 +3,7 @@ cssFiles = [
   'font-awesome/css/font-awesome.min.css',
   'animate.css/animate.min.css',
   'iCheck/skins/**/*.css',
+  'select2/dist/css/select2.min.css',
 ]
 
 jsFiles = [
@@ -12,7 +13,8 @@ jsFiles = [
   'nprogress/nprogress.js',
   'validator/validator.min.js',
   'jQuery-Smart-Wizard/js/jquery.smartWizard.js',
-  'iCheck/icheck.min.js'
+  'iCheck/icheck.min.js',
+  'select2/dist/js/select2.full.min.js',
 ]
 
 otherFiles = [
