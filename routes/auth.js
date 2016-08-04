@@ -4,7 +4,7 @@ module.exports = function(app) {
   /* GET login page. */
   app.get('/login', function(req, res) {
     if (req.isAuthenticated())
-      res.redirect('/')
+      return res.redirect('/')
     res.render('login', { title: 'Login', body_class: 'login', message: req.flash('message') });
   })
 
