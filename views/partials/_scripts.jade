@@ -5,6 +5,7 @@ script(src='/nprogress/nprogress.js')
 script(src='/validator/validator.min.js')
 script(src='/jQuery-Smart-Wizard/js/jquery.smartWizard.js')
 script(src='/iCheck/icheck.min.js')
+script(src='/select2/dist/js/select2.full.min.js')
 
 script(src='https://www.google.com/recaptcha/api.js')
 
@@ -53,7 +54,8 @@ script.
             v5 = validator.checkField.apply($('input[name=passport_issue_date]'));
             v6 = validator.checkField.apply($('input[name=passport_expiry_date]'));
             v7 = validator.checkField.apply($('input[name=nationality]'));
-            v8 = validator.checkField.apply($('input[name=sex]'));
+            v8 = true
+            //- v8 = validator.checkField.apply($('input[name=sex]'));
             v9 = validator.checkField.apply($('input[name=date_of_birth]'));
             isStepValid = (v1 && v2 && v3 && v4 && v5 && v6 && v7 && v8 && v9)
             break;

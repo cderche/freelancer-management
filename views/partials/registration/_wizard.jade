@@ -1,0 +1,27 @@
+#wizard.form_wizard.wizard_horizontal
+  ul.wizard_steps
+    li
+      a(href='#step-1')
+        span.step_no 1
+        span.step_descr Account
+    li
+      a(href='#step-2')
+        span.step_no 2
+        span.step_descr Passport
+    li
+      a(href='#step-3')
+        span.step_no 3
+        span.step_descr Visa
+    li
+      a(href='#step-4')
+        span.step_no 4
+        span.step_descr Bank
+    li
+      a(href='#step-5')
+        span.step_no 5
+        span.step_descr Legal
+  include _step1
+  include _step2
+  include _step3
+  include _step4
+  include _step5
