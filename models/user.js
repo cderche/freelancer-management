@@ -1,7 +1,7 @@
 if (!global.hasOwnProperty('User')) {
   var mongoose = require('mongoose')
 
-  global.User = mongoose.model('User', {
+  global.User = mongoose.model('Workforce', {
     username:             { type: String, required: true },
     password:             { type: String, required: true },
     email:                { type: String, required: true },
