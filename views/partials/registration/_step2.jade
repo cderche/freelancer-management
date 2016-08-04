@@ -1,0 +1,23 @@
+#step-2
+  h2.StepTitle Passport Information
+  .item.form-group.col-md-4.col-sm-4.col-xs-12
+    input.form-control(name='first_name' type='text', placeholder='First Name', required='')
+  .item.form-group.col-md-4.col-sm-4.col-xs-12
+    input.form-control(name='middle_name' type='text', placeholder='Middle Name(s)')
+  .item.form-group.col-md-4.col-sm-4.col-xs-12
+    input.form-control(name='last_name' type='text', placeholder='Last Name', required='')
+  .item.form-group.col-md-4.col-sm-4.col-xs-12
+    input.form-control(name='passport_number' type='text', placeholder='Passport Number', required='')
+  .item.form-group.col-md-4.col-sm-4.col-xs-12
+    input.form-control(name='passport_issue_date' type='text', placeholder='Passport Issue Date', required='')
+  .item.form-group.col-md-4.col-sm-4.col-xs-12
+    input.form-control(name='passport_expiry_date' type='text', placeholder='Passport Expiry Date', required='')
+  .item.form-group.col-md-4.col-sm-4.col-xs-12
+    input.form-control(name='nationality' type='text', placeholder='Nationality', required='')
+  .item.form-group.col-md-4.col-sm-4.col-xs-12
+    //- select.form-control(name='sex' type='text', placeholder='Sex', required='')
+    select.form-control.select2(name='sex' required='')
+      option(value='Female' selected="selected") Female
+      option(value='Male') Male
+  .item.form-group.col-md-4.col-sm-4.col-xs-12
+    input.form-control(name='date_of_birth' type='text', placeholder='Date of Birth', required='')

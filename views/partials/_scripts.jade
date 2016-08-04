@@ -54,7 +54,8 @@ script.
             v5 = validator.checkField.apply($('input[name=passport_issue_date]'));
             v6 = validator.checkField.apply($('input[name=passport_expiry_date]'));
             v7 = validator.checkField.apply($('input[name=nationality]'));
-            v8 = validator.checkField.apply($('input[name=sex]'));
+            v8 = true
+            //- v8 = validator.checkField.apply($('input[name=sex]'));
             v9 = validator.checkField.apply($('input[name=date_of_birth]'));
             isStepValid = (v1 && v2 && v3 && v4 && v5 && v6 && v7 && v8 && v9)
             break;

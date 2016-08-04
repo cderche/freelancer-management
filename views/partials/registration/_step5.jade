@@ -1,0 +1,17 @@
+#step-5
+  h2.StepTitle Terms & Conditions
+  .form-group.col-xs-12
+    //- a.media(href='/terms.pdf')
+    object(data='/terms.pdf', type='application/pdf', width='100%', height='300')
+      iframe(src='/terms.pdf', width='100%', height='300', style='border: none;')
+        | This browser does not support PDFs. Please download the PDF to view it: 
+        a(href='/terms.pdf') Download PDF
+  .item.form-group.col-xs-12
+    label(style='font-size: 16px')
+      input(name='agreeTerms' type='checkbox' onchange="$('.buttonFinish').disabled = !this.checked;")
+      | &nbsp; I agree with the terms and conditions
+  .form-group.col-xs-12.center
+    .g-recaptcha(data-sitekey="6Lf3UyYTAAAAAPx5jsymtDvzX1dyPSg1dQUOqUu1")
+
+style.
+  .g-recaptcha div { margin-left: auto; margin-right: auto;}

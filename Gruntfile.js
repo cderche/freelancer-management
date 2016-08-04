@@ -3,6 +3,7 @@ cssFiles = [
   'font-awesome/css/font-awesome.min.css',
   'animate.css/animate.min.css',
   'iCheck/skins/**/*.css',
+  'select2/dist/css/select2.min.css',
 ]
 
 jsFiles = [
