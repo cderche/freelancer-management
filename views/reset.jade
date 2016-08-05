@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  div
+    .login_wrapper
+      .form.login_form
+        section.login_content
+          form#resetPasswordForm(action='/reset', method='POST')
+            h1 Reset Password
+            .item
+              input.form-control(name='password' type='password', placeholder='Password', required)
+            .item
+              input.form-control(name='password_confirmation' type='password', placeholder='Password Confirmation', data-validate-linked='password', required)
+              .tooltip.help
+                
+            .item
+              button.btn.btn-default(type='submit') Reset Password
+            .clearfix

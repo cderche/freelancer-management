@@ -39,27 +39,16 @@ module.exports = function(app) {
     res.render('forgot', { title: 'Forgot Password', body_class: 'login', message: req.flash('message') });
   })
 
-  app.post('/forgot', function(req, res) {
-    var username = req.body.username
-
-    // Find user
-    User.findOne({ username: username }, function(err, user) {
-      console.error('Error', err);
-      console.log('User', user);
-      if (err || !user) {
-        req.flash('message', `Unknown user ${req.body.username}`);
-        return res.render('forgot', { title: 'Forgot Password', body_class: 'login', message: req.flash('message') });
-      }
-
-      // Generate & save reset token
-      user.generate_reset_token(function() {
-        // Send email with reset token
-        req.flash('message', `Email sent to ${user.email}`);
-        res.render('forgot', { title: 'Forgot Password', body_class: 'login', message: req.flash('message') });
-      })
-
-    })
+  app.post('/forgot', app.middleware.password.forgot, function(req, res) {
+    res.render('forgot', { title: 'Forgot Password', body_class: 'login', message: req.flash('message') });
   })
 
+  app.get('/reset', function(req, res) {
+    res.render('reset', { title: 'Reset Password', body_class: 'login', message: req.flash('message') });
+  })
+
+  app.post('/reset', app.middleware.password.reset, function(req, res) {
+    res.render('reset', { title: 'Reset Password', body_class: 'login', message: req.flash('message') });
+  })
 
 }
