@@ -7,8 +7,11 @@ var app = require('../app');
 var debug = require('debug')('freelancer-management:server');
 var http = require('http');
 var cluster = require('cluster')
-var cpuCount = require('os').cpus().length
-console.log(`There are ${cpuCount} CPUs running.`);
+
+// var cpuCount = require('os').cpus().length
+var WEB_CONCURRENCY = process.env.WEB_CONCURRENCY || require('os').cpus().length
+console.log(`There are ${WEB_CONCURRENCY} CPUs running.`);
+
 /**
  * Get port from environment and store in Express.
  */
@@ -17,12 +20,14 @@ var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 if (cluster.isMaster) {
-  for (var i = 0; i < cpuCount; i++) {
+  for (var i = 0; i < WEB_CONCURRENCY; i++) {
     cluster.fork()
   }
 
-  cluster.on('exit', function(worker, code, signal) {
-    console.log(`Worker ${worker.process.pid} died.`);
+  cluster.on('exit', function(deadWorker, code, signal) {
+    console.log(`Worker ${deadWorker.process.pid} died.`)
+    // Start new worker
+    var worker = cluster.fork()
   })
 
   cluster.on('listening', function(worker, address) {
