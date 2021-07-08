@@ -3,7 +3,7 @@ module.exports = function(app) {
 
   var passport = require('passport');
   var LocalStrategy = require('passport-local').Strategy;
-  var bCrypt = require('bcrypt-nodejs');
+  // var bCrypt = require('bcrypt-nodejs');
 
   passport.serializeUser(function(user, done) {
     done(null, user._id);
@@ -20,9 +20,9 @@ module.exports = function(app) {
     },
     function(req, username, password, done) {
       console.log('passport.use(login)');
-      var isValidPassword = function(user, password){
-        return bCrypt.compareSync(password, user.password);
-      }
+      // var isValidPassword = function(user, password){
+      //   return bCrypt.compareSync(password, user.password);
+      // }
 
       // check in mongo if a user with username exists or not
       User.findOne({ 'username' :  username },
@@ -37,7 +37,7 @@ module.exports = function(app) {
                   req.flash('message', 'Invalid Email or Password.'));
           }
           // User exists but wrong password, log the error
-          if (!isValidPassword(user, password)){
+          if (!user.validate_password(password)){
             console.log('Invalid Password');
             return done(null, false,
                 req.flash('message', 'Invalid Email or Password.'));
@@ -64,9 +64,9 @@ module.exports = function(app) {
     function(req, username, password, done) {
       console.log('passport.use(signup)', username);
       // Generates hash using bCrypt
-      var createHash = function(password){
-       return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
-      }
+      // var createHash = function(password){
+      //  return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
+      // }
 
       findOrCreateUser = function(){
         // find a user in Mongo with provided username
@@ -87,7 +87,7 @@ module.exports = function(app) {
             console.log(req.body);
             var newUser = new User(req.body);
             newUser.username = username
-            newUser.password = createHash(password)
+            newUser.password = User.create_hash(password)
             // set the user's local credentials
 
             // save the user

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div
+    .login_wrapper
+      .form.login_form
+        section.login_content
+          form(action='/forgot', method='POST')
+            h1 Forgot Password
+            div
+              input.form-control(name='username' type='email', placeholder='Email', required='required')
+            div
+              button.btn.btn-default(type='submit') Send Email
+            .clearfix
+            .separator
+              p.change_link
+                | Just want to log in? 
+                a.to_register(href='/login') Log in 
+                include partials/_auth_footer

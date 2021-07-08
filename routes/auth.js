@@ -33,5 +33,22 @@ module.exports = function(app) {
     res.redirect('/login');
   });
 
+  app.get('/forgot', function(req, res) {
+    if (req.isAuthenticated())
+      return res.redirect('/')
+    res.render('forgot', { title: 'Forgot Password', body_class: 'login', message: req.flash('message') });
+  })
+
+  app.post('/forgot', app.middleware.password.forgot, function(req, res) {
+    res.render('forgot', { title: 'Forgot Password', body_class: 'login', message: req.flash('message') });
+  })
+
+  app.get('/reset', function(req, res) {
+    res.render('reset', { title: 'Reset Password', body_class: 'login', message: req.flash('message') });
+  })
+
+  app.post('/reset', app.middleware.password.reset, function(req, res) {
+    res.render('reset', { title: 'Reset Password', body_class: 'login', message: req.flash('message') });
+  })
 
 }

@@ -1,3 +1,4 @@
+// Some comment
 require('newrelic');
 var express = require('express');
 var consign = require('consign');
